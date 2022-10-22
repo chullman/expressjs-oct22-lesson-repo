@@ -5,7 +5,7 @@ const helmet = require('helmet');
 
 // Set values for the server's address
 const PORT = process.env.PORT || 0;
-const HOST = '0.0.0.0';
+const HOST = process.env.NODE_ENV === 'development' ? 'localhost' : '0.0.0.0';
 
 // Cool trick for when promises or other complex callstack things are crashing & breaking:
 void process.on('unhandledRejection', (reason, p) => {
